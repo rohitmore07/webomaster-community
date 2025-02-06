@@ -115,7 +115,7 @@ function App() {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="w-12 h-12 border-4 border-indigo-600 border-t-transparent rounded-full"
+          className="w-12 h-12 border-4 border-blue-800 border-t-transparent rounded-full"
         />
       </div>
     );
@@ -127,7 +127,7 @@ function App() {
       <Toaster position="top-right" />
       
       {/* Header */}
-      <header ref={headerRef} className="bg-indigo-600/90 backdrop-blur-lg text-white py-6 sticky top-0 z-50">
+      <header ref={headerRef} className="bg-blue-800/90 backdrop-blur-lg text-white py-6 sticky top-0 z-50">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div>
             <motion.h1 
@@ -157,7 +157,7 @@ function App() {
                 <span className="text-sm">{user.email}</span>
                 <button
                   onClick={handleLogout}
-                  className="flex items-center px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-indigo-700 hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-600 focus:ring-white transition-colors duration-200"
+                  className="flex items-center px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-blue-800 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white transition-colors duration-200"
                 >
                   <LogOut className="w-4 h-4 mr-2" />
                   Logout
@@ -166,7 +166,7 @@ function App() {
             ) : (
               <button
                 onClick={() => setIsAuthOpen(true)}
-                className="flex items-center px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-indigo-700 hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-600 focus:ring-white transition-colors duration-200"
+                className="flex items-center px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-blue-800 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white transition-colors duration-200"
               >
                 <LogIn className="w-4 h-4 mr-2" />
                 Login
@@ -186,8 +186,8 @@ function App() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center px-4 py-3 text-sm font-medium transition-colors ${
                   activeTab === tab.id
-                    ? 'border-b-2 border-indigo-600 text-indigo-600'
-                    : 'text-gray-600 hover:text-indigo-600'
+                    ? 'border-b-2 border-blue-800 text-blue-800'
+                    : 'text-gray-600 hover:text-blue-800'
                 }`}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -217,7 +217,7 @@ function App() {
               exit={{ scale: 0 }}
               whileHover={{ scale: 1.1 }}
               onClick={() => setIsChatOpen(true)}
-              className="bg-indigo-600 text-white p-4 rounded-full shadow-lg hover:bg-indigo-700 transition-colors"
+              className="bg-blue-800 text-white p-4 rounded-full shadow-lg hover:bg-indigo-700 transition-colors"
             >
               <Bot className="w-6 h-6" />
             </motion.button>
@@ -232,7 +232,7 @@ function App() {
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               className="bg-white rounded-lg shadow-xl w-80 h-96 flex flex-col"
             >
-              <div className="bg-indigo-600 text-white p-4 rounded-t-lg flex justify-between items-center">
+              <div className="bg-blue-800 text-white p-4 rounded-t-lg flex justify-between items-center">
                 <div className="flex items-center">
                   <Bot className="w-5 h-5 mr-2" />
                   <span className="font-medium">Webomate</span>

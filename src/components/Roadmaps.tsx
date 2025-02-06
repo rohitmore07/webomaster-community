@@ -84,7 +84,7 @@ function Roadmaps() {
             className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
           >
             <div className="flex items-center mb-4">
-              <roadmap.icon className="w-8 h-8 text-indigo-600" />
+              <roadmap.icon className="w-8 h-8 text-blue-800" />
               <h3 className="ml-3 text-xl font-semibold text-gray-900">{roadmap.title}</h3>
             </div>
             <p className="text-gray-600 mb-4">{roadmap.description}</p>
@@ -94,7 +94,7 @@ function Roadmaps() {
                   key={stepIndex}
                   className="flex items-center text-sm text-gray-700"
                 >
-                  <div className="w-6 h-6 flex items-center justify-center bg-indigo-100 rounded-full text-indigo-600 font-medium">
+                  <div className="w-6 h-6 flex items-center justify-center bg-indigo-100 rounded-full text-blue-800 font-medium">
                     {stepIndex + 1}
                   </div>
                   <span className="ml-2">{step}</span>
@@ -105,7 +105,7 @@ function Roadmaps() {
               href={roadmap.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors"
+              className="inline-flex items-center px-4 py-2 bg-blue-800 text-white rounded-md hover:bg-indigo-700 transition-colors"
             >
               View Full Roadmap
               <ArrowRight className="w-4 h-4 ml-2" />

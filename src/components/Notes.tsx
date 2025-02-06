@@ -64,21 +64,21 @@ function Notes() {
               </div>
             )}
             <div className="flex items-center mb-4">
-              <BookOpen className="w-6 h-6 text-indigo-600" />
+              <BookOpen className="w-6 h-6 text-blue-800" />
               <h3 className="ml-3 text-xl font-semibold text-gray-900">{note.title}</h3>
             </div>
             <ul className="space-y-2">
               {note.topics.map((topic, topicIndex) => (
                 <li
                   key={topicIndex}
-                  className="flex items-center text-gray-700 hover:text-indigo-600 cursor-pointer"
+                  className="flex items-center text-gray-700 hover:text-blue-800 cursor-pointer"
                 >
-                  <span className="w-2 h-2 bg-indigo-600 rounded-full mr-2"></span>
+                  <span className="w-2 h-2 bg-blue-800 rounded-full mr-2"></span>
                   {topic}
                 </li>
               ))}
             </ul>
-            <button className="mt-4 text-indigo-600 hover:text-indigo-700 font-medium">
+            <button className="mt-4 text-blue-800 hover:text-indigo-700 font-medium">
               View Full Notes →
             </button>
           </div>
