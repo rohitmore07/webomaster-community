@@ -64,7 +64,7 @@ function Events() {
               <div className="mt-4 md:mt-0">
                 <a
                   href={event.registrationUrl}
-                  className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors"
+                  className="inline-flex items-center px-4 py-2 bg-blue-800 text-white rounded-md hover:bg-blue-900 transition-colors"
                 >
                   <Users className="w-4 h-4 mr-2" />
                   Register Now
