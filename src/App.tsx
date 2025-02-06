@@ -217,7 +217,7 @@ function App() {
               exit={{ scale: 0 }}
               whileHover={{ scale: 1.1 }}
               onClick={() => setIsChatOpen(true)}
-              className="bg-blue-800 text-white p-4 rounded-full shadow-lg hover:bg-indigo-700 transition-colors"
+              className="bg-blue-800 text-white p-4 rounded-full shadow-lg hover:bg-blue-900 transition-colors"
             >
               <Bot className="w-6 h-6" />
             </motion.button>
