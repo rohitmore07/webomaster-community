@@ -38,7 +38,7 @@ function ChatBot() {
             <div
               className={`max-w-[80%] p-3 rounded-lg ${
                 message.type === 'user'
-                  ? 'bg-indigo-600 text-white'
+                  ? 'bg-blue-800 text-white'
                   : 'bg-gray-100 text-gray-800'
               }`}
             >
@@ -55,11 +55,11 @@ function ChatBot() {
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSend()}
             placeholder="Ask me anything..."
-            className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:border-indigo-600"
+            className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-800"
           />
           <button
             onClick={handleSend}
-            className="p-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+            className="p-2 bg-blue-800 text-white rounded-lg hover:bg-blue-900 transition-colors"
           >
             <Send className="w-5 h-5" />
           </button>
