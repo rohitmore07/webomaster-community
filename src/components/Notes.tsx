@@ -48,8 +48,8 @@ function Notes() {
   return (
     <div className="space-y-8">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-gray-900">Technical Notes</h2>
-        <p className="mt-2 text-gray-600">Comprehensive study materials for key topics</p>
+        <h2 className="text-3xl font-bold text-white">Technical Notes</h2>
+        <p className="mt-2 text-white">Comprehensive study materials for key topics</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

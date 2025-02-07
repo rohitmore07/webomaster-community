@@ -78,8 +78,8 @@ function Roadmaps({ onNext }: RoadmapsProps) {
   return (
     <div className="space-y-8">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-gray-900">Technology Roadmaps</h2>
-        <p className="mt-2 text-gray-600">Choose your learning path and start your journey</p>
+        <h2 className="text-3xl font-bold text-white">Technology Roadmaps</h2>
+        <p className="mt-2 text-white">Choose your learning path and start your journey</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

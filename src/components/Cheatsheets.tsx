@@ -35,8 +35,8 @@ function Cheatsheets() {
   return (
     <div className="space-y-8">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-gray-900">Quick Reference Cheatsheets</h2>
-        <p className="mt-2 text-gray-600">Essential commands and syntax at your fingertips</p>
+        <h2 className="text-3xl font-bold text-white">Quick Reference Cheatsheets</h2>
+        <p className="mt-2 text-white">Essential commands and syntax at your fingertips</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -91,8 +91,8 @@ function News() {
   return (
     <div className="space-y-8">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-gray-900">Tech News</h2>
-        <p className="mt-2 text-gray-600">Top stories from the tech community</p>
+        <h2 className="text-3xl font-bold text-white">Tech News</h2>
+        <p className="mt-2 text-white">Top stories from the tech community</p>
       </div>
 
       <div className="space-y-6">

@@ -69,8 +69,8 @@ function Teams() {
   return (
     <div className="space-y-8">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-gray-900">Community Teams</h2>
-        <p className="mt-2 text-gray-600">Join specialized teams and contribute to exciting projects</p>
+        <h2 className="text-3xl font-bold text-white">Community Teams</h2>
+        <p className="mt-2 text-white">Join specialized teams and contribute to exciting projects</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
