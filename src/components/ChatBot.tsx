@@ -59,7 +59,7 @@ function ChatBot() {
           />
           <button
             onClick={handleSend}
-            className="p-2 bg-blue-800 text-white rounded-lg hover:bg-blue-900 transition-colors"
+            className="p-2 bg-black text-white rounded-lg hover:bg-blue-900 transition-colors"
           >
             <Send className="w-5 h-5" />
           </button>

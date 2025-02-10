@@ -9,7 +9,7 @@ interface IntroAnimationProps {
 export function IntroAnimation({ onComplete }: IntroAnimationProps) {
   return (
     <motion.div
-      className="fixed inset-0 bg-indigo-600 flex items-center justify-center z-50"
+      className="fixed inset-0 bg-gray-900 flex items-center justify-center z-50"
       initial={{ opacity: 1 }}
       animate={{ opacity: 0 }}
       transition={{ duration: 0.5, delay: 2.5 }}
