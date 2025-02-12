@@ -70,28 +70,28 @@ function Teams() {
     <div className="space-y-8">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-white">Community Teams</h2>
-        <p className="mt-2 text-white">Join specialized teams and contribute to exciting projects</p>
+        <p className="mt-2 text-gray-400">Join specialized teams and contribute to exciting projects</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {teams.map((team, index) => (
-          <div key={index} className="bg-white rounded-xl shadow-md overflow-hidden">
+          <div key={index} className="glass-effect rounded-xl overflow-hidden border border-indigo-500/10">
             <div className="p-6">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-bold text-gray-900">{team.name}</h3>
+                <h3 className="text-xl font-bold text-white">{team.name}</h3>
                 <div className="flex items-center space-x-2">
-                  <Users className="w-5 h-5 text-indigo-600" />
-                  <span className="text-gray-600">{team.members} members</span>
+                  <Users className="w-5 h-5 text-indigo-400" />
+                  <span className="text-gray-400">{team.members} members</span>
                 </div>
               </div>
               
-              <p className="text-gray-600 mb-4">{team.description}</p>
+              <p className="text-gray-300 mb-4">{team.description}</p>
               
               <div className="flex flex-wrap gap-2 mb-6">
                 {team.tags.map((tag, tagIndex) => (
                   <span
                     key={tagIndex}
-                    className="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm"
+                    className="px-3 py-1 bg-indigo-500/10 text-indigo-300 rounded-full text-sm"
                   >
                     {tag}
                   </span>
@@ -99,17 +99,17 @@ function Teams() {
               </div>
 
               <div className="space-y-4">
-                <h4 className="font-semibold text-gray-900 flex items-center">
+                <h4 className="font-semibold text-white flex items-center">
                   <Github className="w-5 h-5 mr-2" />
                   Active Projects
                 </h4>
                 {team.projects.map((project, projectIndex) => (
                   <div
                     key={projectIndex}
-                    className="bg-gray-50 rounded-lg p-4 space-y-2"
+                    className="bg-[#1E293B] rounded-lg p-4 space-y-2"
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-medium text-gray-900">{project.name}</span>
+                      <span className="font-medium text-white">{project.name}</span>
                       <div className="flex items-center text-yellow-500">
                         <Star className="w-4 h-4 fill-current" />
                         <span className="ml-1 text-sm">{project.stars}</span>
@@ -119,7 +119,7 @@ function Teams() {
                       {project.tech.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-2 py-1 bg-white text-gray-600 rounded text-sm border border-gray-200"
+                          className="px-2 py-1 bg-[#0F172A] text-gray-300 rounded text-sm border border-indigo-500/10"
                         >
                           {tech}
                         </span>
@@ -130,7 +130,7 @@ function Teams() {
               </div>
 
               <div className="mt-6 flex items-center justify-between">
-                <div className="flex items-center text-sm text-gray-500">
+                <div className="flex items-center text-sm text-gray-400">
                   <Globe className="w-4 h-4 mr-1" />
                   <span>{team.openForMembers ? 'Open for new members' : 'Team full'}</span>
                 </div>
@@ -138,7 +138,7 @@ function Teams() {
                   className={`flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     team.openForMembers
                       ? 'bg-indigo-600 text-white hover:bg-indigo-700'
-                      : 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                      : 'bg-[#1E293B] text-gray-400 cursor-not-allowed'
                   }`}
                   disabled={!team.openForMembers}
                 >

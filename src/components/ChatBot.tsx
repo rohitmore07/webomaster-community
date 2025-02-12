@@ -13,10 +13,8 @@ function ChatBot() {
   const handleSend = () => {
     if (!input.trim()) return;
 
-    // Add user message
     setMessages([...messages, { type: 'user', content: input }]);
 
-    // Simulate bot response
     setTimeout(() => {
       setMessages(prev => [...prev, {
         type: 'bot',
@@ -38,8 +36,8 @@ function ChatBot() {
             <div
               className={`max-w-[80%] p-3 rounded-lg ${
                 message.type === 'user'
-                  ? 'bg-blue-800 text-white'
-                  : 'bg-gray-100 text-gray-800'
+                  ? 'bg-indigo-600 text-white'
+                  : 'bg-[#1E293B] text-gray-200'
               }`}
             >
               {message.content}
@@ -47,7 +45,7 @@ function ChatBot() {
           </div>
         ))}
       </div>
-      <div className="border-t p-4">
+      <div className="border-t border-indigo-500/10 p-4">
         <div className="flex space-x-2">
           <input
             type="text"
@@ -55,11 +53,11 @@ function ChatBot() {
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSend()}
             placeholder="Ask me anything..."
-            className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-800"
+            className="flex-1 px-4 py-2 bg-[#1E293B] border border-indigo-500/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
           />
           <button
             onClick={handleSend}
-            className="p-2 bg-black text-white rounded-lg hover:bg-blue-900 transition-colors"
+            className="p-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
           >
             <Send className="w-5 h-5" />
           </button>
