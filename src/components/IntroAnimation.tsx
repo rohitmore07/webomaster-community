@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2 } from 'lucide-react';
 
 interface IntroAnimationProps {
   onComplete: () => void;
@@ -16,18 +15,16 @@ export function IntroAnimation({ onComplete }: IntroAnimationProps) {
       onAnimationComplete={onComplete}
     >
       <div className="text-center">
-        <motion.div
-          initial={{ scale: 0, rotate: -180 }}
-          animate={{ scale: 1, rotate: 0 }}
-          transition={{
-            duration: 1,
-            ease: "backOut",
-          }}
-          className="mb-4 inline-block"
-        >
-          <Code2 className="w-24 h-24 text-white" />
-        </motion.div>
-        
+        {/* Logo Animation */}
+        <motion.img
+          src="/logo.png"
+          alt="Webo Master Logo"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="w-20 h-20 mx-auto mb-4"
+        />
+
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -36,19 +33,12 @@ export function IntroAnimation({ onComplete }: IntroAnimationProps) {
         >
           Webo Master
         </motion.h1>
-        
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ delay: 1, duration: 0.5 }}
-          className="w-24 h-1 bg-white mx-auto mt-4"
-        />
-        
+
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.5 }}
-          className="text-indigo-100 mt-2"
+          className="text-2xl text-indigo-100 mt-2"
         >
           Community
         </motion.p>
