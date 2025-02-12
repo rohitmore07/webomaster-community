@@ -113,7 +113,7 @@ function App() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+      <div className="min-h-screen bg-[#0F172A] flex items-center justify-center">
         <motion.div
           animate={{
             scale: [1, 1.2, 1],
@@ -135,15 +135,15 @@ function App() {
       {showIntro ? (
         <IntroAnimation onComplete={() => setShowIntro(false)} />
       ) : (
-        <div className="min-h-screen bg-gray-900 relative">
+        <div className="min-h-screen bg-[#0F172A] relative">
           <BlurredBackground />
           <Toaster position="top-right" />
           
-          <header ref={headerRef} className="gradient-primary backdrop-blur-lg text-white py-6 sticky top-0 z-50 glass-effect">
+          <header ref={headerRef} className="bg-[#0F172A]/90 backdrop-blur-lg border-b border-indigo-500/10 text-white py-6 sticky top-0 z-50">
             <div className="container mx-auto px-4 flex justify-between items-center">
               <div>
                 <motion.h1 
-                  className="text-3xl font-bold text-gray-100 neon-text"
+                  className="text-3xl font-bold text-white neon-text"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5 }}
@@ -151,7 +151,7 @@ function App() {
                   Webo Master Community
                 </motion.h1>
                 <motion.p 
-                  className="mt-2 text-gray-300"
+                  className="mt-2 text-gray-400"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
@@ -166,10 +166,10 @@ function App() {
               >
                 {user ? (
                   <div className="flex items-center space-x-4">
-                    <span className="text-sm">{user.email}</span>
+                    <span className="text-sm text-gray-300">{user.email}</span>
                     <button
                       onClick={handleLogout}
-                      className="flex items-center px-4 py-2 gradient-secondary rounded-md text-sm font-medium text-white hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-purple-500 transition-colors duration-200"
+                      className="flex items-center px-4 py-2 bg-indigo-600 rounded-lg text-sm font-medium text-white hover:bg-indigo-700 transition-colors"
                     >
                       <LogOut className="w-4 h-4 mr-2" />
                       Logout
@@ -178,7 +178,7 @@ function App() {
                 ) : (
                   <button
                     onClick={() => setIsAuthOpen(true)}
-                    className="flex items-center px-4 py-2 gradient-secondary rounded-md text-sm font-medium text-white hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-purple-500 transition-colors duration-200"
+                    className="flex items-center px-4 py-2 bg-indigo-600 rounded-lg text-sm font-medium text-white hover:bg-indigo-700 transition-colors"
                   >
                     <LogIn className="w-4 h-4 mr-2" />
                     Login
@@ -188,7 +188,7 @@ function App() {
             </div>
           </header>
 
-          <nav className="glass-effect shadow-lg sticky top-20 z-40 border-t border-gray-800">
+          <nav className="bg-[#0F172A]/90 backdrop-blur-lg border-b border-indigo-500/10 sticky top-20 z-40">
             <div className="container mx-auto px-4">
               <div className="flex space-x-1 overflow-x-auto">
                 {tabs.map((tab, index) => (
@@ -197,8 +197,8 @@ function App() {
                     onClick={() => setActiveTab(tab.id)}
                     className={`flex items-center px-4 py-3 text-sm font-medium transition-all ${
                       activeTab === tab.id
-                        ? 'gradient-secondary text-white rounded-lg neon-glow'
-                        : 'text-gray-200 hover:text-white hover:bg-white/10 rounded-lg'
+                        ? 'bg-indigo-600 text-white rounded-lg'
+                        : 'text-gray-400 hover:text-white hover:bg-indigo-500/10 rounded-lg'
                     }`}
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -214,7 +214,7 @@ function App() {
           </nav>
 
           <main className="container mx-auto px-4 py-8 relative z-10">
-            <div className="glass-effect rounded-xl p-6 shadow-xl border border-gray-800">
+            <div className="glass-effect rounded-xl p-6 shadow-lg border border-indigo-500/10">
               {renderContent()}
             </div>
           </main>
@@ -228,7 +228,7 @@ function App() {
                   exit={{ scale: 0 }}
                   whileHover={{ scale: 1.1 }}
                   onClick={() => setIsChatOpen(true)}
-                  className="gradient-accent text-white p-4 rounded-full shadow-lg hover:scale-110 transition-all duration-300 neon-glow"
+                  className="bg-indigo-600 hover:bg-indigo-700 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
                 >
                   <Bot className="w-6 h-6" />
                 </motion.button>
@@ -241,9 +241,9 @@ function App() {
                   initial={{ opacity: 0, scale: 0.9, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                  className="glass-effect rounded-lg shadow-xl w-80 h-96 flex flex-col border border-gray-800"
+                  className="glass-effect rounded-lg shadow-xl w-80 h-96 flex flex-col border border-indigo-500/10"
                 >
-                  <div className="bg--600 text-white p-4 rounded-t-lg flex justify-between items-center">
+                  <div className="bg-indigo-600 text-white p-4 rounded-t-lg flex justify-between items-center">
                     <div className="flex items-center">
                       <Bot className="w-5 h-5 mr-2" />
                       <span className="font-medium">Webomate</span>
@@ -267,6 +267,7 @@ function App() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
+                className="fixed inset-0 bg-[#0F172A]/80 backdrop-blur-sm flex items-center justify-center z-50"
               >
                 <Auth onClose={() => setIsAuthOpen(false)} />
               </motion.div>
