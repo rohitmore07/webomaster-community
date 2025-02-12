@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Users, Github, Globe, Star, MessageSquare } from 'lucide-react';
+import TeamDetails from './TeamDetails';
 
 const teams = [
   {
+    id: '1',
     name: 'Web Warriors',
     description: 'Frontend and backend development experts',
     members: 12,
@@ -22,6 +24,7 @@ const teams = [
     tags: ['Web Development', 'Full Stack', 'Open Source']
   },
   {
+    id: '2',
     name: 'AI Innovators',
     description: 'Machine learning and AI enthusiasts',
     members: 8,
@@ -36,6 +39,7 @@ const teams = [
     tags: ['AI', 'Machine Learning', 'Python']
   },
   {
+    id: '3',
     name: 'Mobile Mavens',
     description: 'Cross-platform mobile app developers',
     members: 10,
@@ -50,6 +54,7 @@ const teams = [
     tags: ['Mobile Development', 'React Native', 'iOS/Android']
   },
   {
+    id: '4',
     name: 'Cloud Champions',
     description: 'Cloud architecture and DevOps specialists',
     members: 15,
@@ -66,6 +71,12 @@ const teams = [
 ];
 
 function Teams() {
+  const [selectedTeam, setSelectedTeam] = useState<string | null>(null);
+
+  if (selectedTeam) {
+    return <TeamDetails teamId={selectedTeam} onBack={() => setSelectedTeam(null)} />;
+  }
+
   return (
     <div className="space-y-8">
       <div className="text-center mb-12">
@@ -74,8 +85,12 @@ function Teams() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {teams.map((team, index) => (
-          <div key={index} className="glass-effect rounded-xl overflow-hidden border border-indigo-500/10">
+        {teams.map((team) => (
+          <div
+            key={team.id}
+            className="glass-effect rounded-xl overflow-hidden border border-indigo-500/10 hover:border-indigo-500/20 transition-all cursor-pointer"
+            onClick={() => setSelectedTeam(team.id)}
+          >
             <div className="p-6">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-xl font-bold text-white">{team.name}</h3>
@@ -141,6 +156,10 @@ function Teams() {
                       : 'bg-[#1E293B] text-gray-400 cursor-not-allowed'
                   }`}
                   disabled={!team.openForMembers}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    // Handle join request
+                  }}
                 >
                   <MessageSquare className="w-4 h-4 mr-2" />
                   {team.openForMembers ? 'Request to Join' : 'Currently Full'}
