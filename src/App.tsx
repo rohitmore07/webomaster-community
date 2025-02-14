@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Bot, BookOpen, Map, FileText, Trophy, Newspaper, X, LogIn, LogOut, Users, ArrowRight } from 'lucide-react';
+import { Bot, BookOpen, Map, FileText, Trophy, Newspaper, X, LogIn, LogOut, Users, ArrowRight, User } from 'lucide-react';
 import { Toaster } from 'react-hot-toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
@@ -11,6 +11,7 @@ import Events from './components/Events';
 import News from './components/News';
 import ChatBot from './components/ChatBot';
 import Auth from './components/Auth';
+import Profile from './components/Profile';
 import { BlurredBackground } from './components/BlurredBackground';
 import { IntroAnimation } from './components/IntroAnimation';
 import { supabase } from './lib/supabase';
@@ -20,6 +21,7 @@ function App() {
   const [activeTab, setActiveTab] = useState('roadmaps');
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isAuthOpen, setIsAuthOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [showIntro, setShowIntro] = useState(true);
@@ -87,6 +89,22 @@ function App() {
   };
 
   const renderContent = () => {
+    if (isProfileOpen) {
+      return (
+        <AnimatePresence mode="wait">
+          <motion.div
+            key="profile"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Profile onClose={() => setIsProfileOpen(false)} />
+          </motion.div>
+        </AnimatePresence>
+      );
+    }
+
     const content = {
       roadmaps: <Roadmaps onNext={handleNextTab} />,
       cheatsheets: <Cheatsheets onNext={handleNextTab} />,
@@ -163,10 +181,17 @@ function App() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
+                className="flex items-center space-x-4"
               >
                 {user ? (
-                  <div className="flex items-center space-x-4">
-                    <span className="text-sm text-gray-300">{user.email}</span>
+                  <>
+                    <button
+                      onClick={() => setIsProfileOpen(true)}
+                      className="flex items-center px-4 py-2 bg-indigo-500/10 rounded-lg text-sm font-medium text-white hover:bg-indigo-500/20 transition-colors"
+                    >
+                      <User className="w-4 h-4 mr-2" />
+                      Profile
+                    </button>
                     <button
                       onClick={handleLogout}
                       className="flex items-center px-4 py-2 bg-indigo-600 rounded-lg text-sm font-medium text-white hover:bg-indigo-700 transition-colors"
@@ -174,7 +199,7 @@ function App() {
                       <LogOut className="w-4 h-4 mr-2" />
                       Logout
                     </button>
-                  </div>
+                  </>
                 ) : (
                   <button
                     onClick={() => setIsAuthOpen(true)}
@@ -194,9 +219,12 @@ function App() {
                 {tabs.map((tab, index) => (
                   <motion.button
                     key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
+                    onClick={() => {
+                      setActiveTab(tab.id);
+                      setIsProfileOpen(false);
+                    }}
                     className={`flex items-center px-4 py-3 text-sm font-medium transition-all ${
-                      activeTab === tab.id
+                      activeTab === tab.id && !isProfileOpen
                         ? 'bg-indigo-600 text-white rounded-lg'
                         : 'text-gray-400 hover:text-white hover:bg-indigo-500/10 rounded-lg'
                     }`}
