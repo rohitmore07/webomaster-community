@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Bot, BookOpen, Map, FileText, Trophy, Newspaper, X, LogIn, LogOut, Users, ArrowRight, User } from 'lucide-react';
-import { Toaster } from 'react-hot-toast';
+import { Bot, BookOpen, Map, FileText, Trophy, Newspaper, X, LogIn, LogOut, Users, ArrowRight, User, Cookie } from 'lucide-react';
+import { Toaster, toast } from 'react-hot-toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
 import Roadmaps from './components/Roadmaps';
@@ -15,7 +15,6 @@ import Profile from './components/Profile';
 import { BlurredBackground } from './components/BlurredBackground';
 import { IntroAnimation } from './components/IntroAnimation';
 import { supabase } from './lib/supabase';
-import toast from 'react-hot-toast';
 
 function App() {
   const [activeTab, setActiveTab] = useState('roadmaps');
@@ -35,6 +34,56 @@ function App() {
     { id: 'events', label: 'Events', icon: Trophy },
     { id: 'news', label: 'Tech News', icon: Newspaper },
   ];
+
+  useEffect(() => {
+    // Check if user has already made a cookie choice
+    const cookieChoice = localStorage.getItem('cookieConsent');
+    if (!cookieChoice) {
+      // Show cookie consent toast
+      toast.custom((t) => (
+        <div className={`${t.visible ? 'animate-enter' : 'animate-leave'} glass-effect max-w-md w-full bg-[#1E293B] shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}>
+          <div className="flex-1 w-0 p-4">
+            <div className="flex items-start">
+              <div className="flex-shrink-0 pt-0.5">
+                <Cookie className="h-10 w-10 text-indigo-500" />
+              </div>
+              <div className="ml-3 flex-1">
+                <p className="text-sm font-medium text-white">
+                  We use cookies to enhance your experience
+                </p>
+                <p className="mt-1 text-sm text-gray-400">
+                  Choose your cookie preferences to continue browsing
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col border-l border-indigo-500/10">
+            <button
+              onClick={() => {
+                localStorage.setItem('cookieConsent', 'accepted');
+                toast.dismiss(t.id);
+              }}
+              className="w-full border border-transparent rounded-none rounded-tr-lg p-4 flex items-center justify-center text-sm font-medium text-indigo-400 hover:text-indigo-300 focus:outline-none"
+            >
+              Sweet!
+            </button>
+            <button
+              onClick={() => {
+                localStorage.setItem('cookieConsent', 'rejected');
+                toast.dismiss(t.id);
+              }}
+              className="w-full border border-transparent rounded-none rounded-br-lg p-4 flex items-center justify-center text-sm font-medium text-gray-400 hover:text-gray-300 focus:outline-none"
+            >
+              I'm on a diet
+            </button>
+          </div>
+        </div>
+      ), {
+        duration: Infinity,
+        position: 'bottom-center',
+      });
+    }
+  }, []);
 
   const handleNextTab = () => {
     const currentIndex = tabs.findIndex(tab => tab.id === activeTab);
@@ -155,7 +204,17 @@ function App() {
       ) : (
         <div className="min-h-screen bg-[#0F172A] relative">
           <BlurredBackground />
-          <Toaster position="top-right" />
+          <Toaster 
+            position="top-right"
+            toastOptions={{
+              duration: 5000,
+              style: {
+                background: '#1E293B',
+                color: '#fff',
+                border: '1px solid rgba(99, 102, 241, 0.1)',
+              },
+            }}
+          />
           
           <header ref={headerRef} className="bg-[#0F172A]/90 backdrop-blur-lg border-b border-indigo-500/10 text-white py-6 sticky top-0 z-50">
             <div className="container mx-auto px-4 flex justify-between items-center">
