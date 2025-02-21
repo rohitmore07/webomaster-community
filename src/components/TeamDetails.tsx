@@ -119,10 +119,11 @@ export default function TeamDetails({ teamId, onBack }: TeamDetailsProps) {
         >
           <h3 className="text-xl font-semibold text-white mb-4">Quick Actions</h3>
           <div className="space-y-3">
-            <button className="w-full flex items-center justify-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+          <button className="w-full flex items-center justify-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
               <MessageSquare className="w-5 h-5 mr-2" />
               Request to Join
             </button>
+
             <button className="w-full flex items-center justify-center px-4 py-2 bg-[#24292F] text-white rounded-lg hover:bg-[#1a1f24] transition-colors">
               <Github className="w-5 h-5 mr-2" />
               View on GitHub

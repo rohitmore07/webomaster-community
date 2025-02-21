@@ -14,7 +14,7 @@ const roadmaps = [
       'State Management',
       'Testing & Deployment'
     ],
-    url: '#'
+    url: 'https://www.freecodecamp.org/news/front-end-developer-roadmap/'
   },
   {
     title: 'Backend Development',
@@ -26,7 +26,7 @@ const roadmaps = [
       'Database Design',
       'Server Architecture'
     ],
-    url: '#'
+    url: 'https://www.geeksforgeeks.org/back-end-developer-roadmap/'
   },
   {
     title: 'Mobile Development',
@@ -38,7 +38,7 @@ const roadmaps = [
       'App State Management',
       'Publishing Apps'
     ],
-    url: '#'
+    url: 'https://medium.com/@blendvisions/the-complete-app-development-roadmap-2024-8bdbc03d6a64'
   },
   {
     title: 'DevOps & Cloud',
