@@ -50,7 +50,7 @@ const roadmaps = [
       'CI/CD Pipelines',
       'Cloud Services'
     ],
-    url: '#'
+    url: 'https://www.geeksforgeeks.org/devops-roadmap/'
   },
   {
     title: 'Database Engineering',
@@ -62,7 +62,7 @@ const roadmaps = [
       'Performance Tuning',
       'Data Warehousing'
     ],
-    url: '#'
+    url: 'https://www.geeksforgeeks.org/devops-roadmap/'
   },
   {
     title: 'Full Stack Development',
@@ -74,7 +74,7 @@ const roadmaps = [
       'Authentication & Security',
       'System Architecture'
     ],
-    url: '#'
+    url: 'https://roadmap.sh/full-stack'
   }
 ];
 
