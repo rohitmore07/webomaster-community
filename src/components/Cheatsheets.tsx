@@ -23,10 +23,10 @@ const cheatsheets = [
   {
     category: 'Database',
     sheets: [
-      { title: 'SQL Commands', url: '#' },
-      { title: 'MongoDB Operations', url: '#' },
-      { title: 'Redis Commands', url: '#' },
-      { title: 'PostgreSQL', url: '#' },
+      { title: 'SQL Commands', url: 'https://www.dbvis.com/wp-content/uploads/2024/04/SQL-Cheat-Sheet.pdf' },
+      { title: 'MongoDB Operations', url: 'https://www.mongodb.com/developer/products/mongodb/cheat-sheet/' },
+      { title: 'Redis Commands', url: 'https://redis.io/learn/howtos/quick-start/cheat-sheet' },
+      { title: 'PostgreSQL', url: 'https://learnsql.com/blog/postgresql-cheat-sheet/' },
     ],
   },
 ];
