@@ -25,6 +25,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [showIntro, setShowIntro] = useState(true);
   const headerRef = useRef(null);
+  const [cookieToastShown, setCookieToastShown] = useState(false);
 
   const tabs = [
     { id: 'roadmaps', label: 'Roadmaps', icon: Map },
@@ -36,54 +37,61 @@ function App() {
   ];
 
   useEffect(() => {
-    // Check if user has already made a cookie choice
-    const cookieChoice = localStorage.getItem('cookieConsent');
-    if (!cookieChoice) {
-      // Show cookie consent toast
-      toast.custom((t) => (
-        <div className={`${t.visible ? 'animate-enter' : 'animate-leave'} glass-effect max-w-md w-full bg-[#1E293B] shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}>
-          <div className="flex-1 w-0 p-4">
-            <div className="flex items-start">
-              <div className="flex-shrink-0 pt-0.5">
-                <Cookie className="h-10 w-10 text-indigo-500" />
+    if (!showIntro && !cookieToastShown) {
+      const cookieChoice = localStorage.getItem('cookieConsent');
+      if (!cookieChoice) {
+        setCookieToastShown(true);
+        const toastId = toast.custom(
+          (t) => (
+            <div className="glass-effect max-w-md w-full bg-[#1E293B] shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5">
+              <div className="flex-1 w-0 p-4">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 pt-0.5">
+                    <Cookie className="h-10 w-10 text-indigo-500" />
+                  </div>
+                  <div className="ml-3 flex-1">
+                    <p className="text-sm font-medium text-white">
+                      We use cookies to enhance your experience
+                    </p>
+                    <p className="mt-1 text-sm text-gray-400">
+                      Choose your cookie preferences to continue browsing
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className="ml-3 flex-1">
-                <p className="text-sm font-medium text-white">
-                  We use cookies to enhance your experience
-                </p>
-                <p className="mt-1 text-sm text-gray-400">
-                  Choose your cookie preferences to continue browsing
-                </p>
+              <div className="flex flex-col border-l border-indigo-500/10">
+                <button
+                  onClick={() => {
+                    localStorage.setItem('cookieConsent', 'accepted');
+                    toast.dismiss(t.id);
+                  }}
+                  className="w-full border border-transparent rounded-none rounded-tr-lg p-4 flex items-center justify-center text-sm font-medium text-indigo-400 hover:text-indigo-300 focus:outline-none"
+                >
+                  Sweet!
+                </button>
+                <button
+                  onClick={() => {
+                    localStorage.setItem('cookieConsent', 'rejected');
+                    toast.dismiss(t.id);
+                  }}
+                  className="w-full border border-transparent rounded-none rounded-br-lg p-4 flex items-center justify-center text-sm font-medium text-gray-400 hover:text-gray-300 focus:outline-none"
+                >
+                  I'm on a diet
+                </button>
               </div>
             </div>
-          </div>
-          <div className="flex flex-col border-l border-indigo-500/10">
-            <button
-              onClick={() => {
-                localStorage.setItem('cookieConsent', 'accepted');
-                toast.dismiss(t.id);
-              }}
-              className="w-full border border-transparent rounded-none rounded-tr-lg p-4 flex items-center justify-center text-sm font-medium text-indigo-400 hover:text-indigo-300 focus:outline-none"
-            >
-              Sweet!
-            </button>
-            <button
-              onClick={() => {
-                localStorage.setItem('cookieConsent', 'rejected');
-                toast.dismiss(t.id);
-              }}
-              className="w-full border border-transparent rounded-none rounded-br-lg p-4 flex items-center justify-center text-sm font-medium text-gray-400 hover:text-gray-300 focus:outline-none"
-            >
-              I'm on a diet
-            </button>
-          </div>
-        </div>
-      ), {
-        duration: Infinity,
-        position: 'bottom-center',
-      });
+          ),
+          {
+            duration: Infinity,
+            position: 'bottom-center',
+            id: 'cookie-consent'
+          }
+        );
+
+        return () => toast.dismiss(toastId);
+      }
     }
-  }, []);
+  }, [showIntro, cookieToastShown]);
 
   const handleNextTab = () => {
     const currentIndex = tabs.findIndex(tab => tab.id === activeTab);
