@@ -67,7 +67,7 @@ function App() {
                   }}
                   className="w-full border border-transparent rounded-none rounded-tr-lg p-4 flex items-center justify-center text-sm font-medium text-indigo-400 hover:text-indigo-300 focus:outline-none"
                 >
-                  Sweet!
+                  Sweet
                 </button>
                 <button
                   onClick={() => {
